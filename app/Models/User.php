@@ -26,6 +26,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'person_id',
+        'email',
         'password'
     ];
 
@@ -57,7 +58,7 @@ class User extends Authenticatable
 
     public function user_role(): HasMany
     {
-        
+
         return $this->hasMany(UserRole::class, 'user_id');
     }
 }

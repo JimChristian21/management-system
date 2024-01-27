@@ -25,6 +25,7 @@ class User {
 
             $user = user_model::create([
                 'person_id' => $person->id,
+                'email' => $params->email,
                 'password' => Hash::make($params->password),
             ]);
 

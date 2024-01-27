@@ -16,9 +16,11 @@ class Role extends Model
 
     protected $fillable = ['role'];
 
+    public $timestamps = FALSE;
+
     public function user_role(): HasMany
     {
-        
+
         return $this->hasMany(UserRole::class, 'role_id');
     }
 }

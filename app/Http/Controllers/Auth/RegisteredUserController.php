@@ -16,9 +16,6 @@ use DB;
 
 use App\Models\{
     User as user_model,
-    Person as person_model,
-    Address,
-    UserRole
 };
 use App\Http\Libraries\User\User;
 
@@ -50,7 +47,7 @@ class RegisteredUserController extends Controller
             'city' => 'required|string|max:64',
             'province' => 'required|string|max:64',
             'zip_code' => 'required|string|max:12',
-            'email' => 'required|string|lowercase|email|max:255|unique:'.person_model::class,
+            'email' => 'required|string|lowercase|email|max:255|unique:'.user_model::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -70,7 +67,7 @@ class RegisteredUserController extends Controller
 
         $user = new User();
         $newUser = $user->create($params);
-        
+
         event(new Registered($newUser));
 
         Auth::login($newUser);

@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('family_name', 255)->nullable(FALSE);
             $table->string('gender', 8)->nullable();
             $table->date('birthdate')->nullable(FALSE);
-            $table->string('email', 255)->nullable(FALSE);
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('phone_number', 16)->nullable();
             $table->timestamps();
         });

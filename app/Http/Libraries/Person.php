@@ -13,7 +13,6 @@ class Person {
             'family_name' => $params->family_name,
             'gender' => $params->gender,
             'birthdate' => $params->birth_date,
-            'email' => $params->email,
             'phone_number' => $params->phone_number ?? NULL
         ]);
 
@@ -28,7 +27,7 @@ class Person {
                 'zip_code' => $params->zip_code ?? NULL
             ]);
         }
- 
+
         return $person;
     }
 
