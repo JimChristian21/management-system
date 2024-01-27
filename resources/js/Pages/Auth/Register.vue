@@ -10,6 +10,7 @@ const form = useForm({
     given_name: '',
     family_name: '',
     birth_date: '',
+    gender: '',
     street: '',
     barangay: '',
     city: '',
