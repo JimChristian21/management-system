@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             
             $table->id();
+            $table->foreignId('person_id')
+                ->nullable(FALSE)
+                ->constrained(
+                    table: 'persons'
+                )
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->string('street', 64)->nullable();
             $table->string('barangay', 64)->nullable();
             $table->string('city', 64)->nullable(FALSE);

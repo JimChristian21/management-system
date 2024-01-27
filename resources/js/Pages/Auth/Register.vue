@@ -7,7 +7,14 @@ import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
-    name: '',
+    given_name: '',
+    family_name: '',
+    birth_date: '',
+    street: '',
+    barangay: '',
+    city: '',
+    province: '',
+    zip_code: '',
     email: '',
     password: '',
     password_confirmation: '',
@@ -26,19 +33,145 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="given_name" value="Given Name" />
 
                 <TextInput
-                    id="name"
+                    id="given_name"
                     type="text"
                     class="mt-1 block w-full"
-                    v-model="form.name"
+                    v-model="form.given_name"
                     required
                     autofocus
-                    autocomplete="name"
+                    autocomplete="given_name"
                 />
 
-                <InputError class="mt-2" :message="form.errors.name" />
+                <InputError class="mt-2" :message="form.errors.given_name" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="family_name" value="Family Name" />
+
+                <TextInput
+                    id="family_name"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.family_name"
+                    required
+                    autofocus
+                    autocomplete="family_name"
+                />
+
+                <InputError class="mt-2" :message="form.errors.family_name" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="birth_date" value="Birth Date" />
+
+                <TextInput
+                    id="birth_date"
+                    type="date"
+                    class="mt-1 block w-full"
+                    v-model="form.birth_date"
+                    required
+                    autofocus
+                    autocomplete="birth_date"
+                />
+
+                <InputError class="mt-2" :message="form.errors.birth_date" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="gender" value="Gender" />
+
+                <TextInput
+                    id="gender"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.gender"
+                    required
+                    autofocus
+                    autocomplete="gender"
+                />
+
+                <InputError class="mt-2" :message="form.errors.gender" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="street" value="Street" />
+
+                <TextInput
+                    id="street"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.street"
+                    autofocus
+                    autocomplete="street"
+                />
+
+                <InputError class="mt-2" :message="form.errors.street" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="barangay" value="Barangay" />
+
+                <TextInput
+                    id="barangay"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.barangay"
+                    autofocus
+                    autocomplete="barangay"
+                />
+
+                <InputError class="mt-2" :message="form.errors.barangay" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="city" value="City" />
+
+                <TextInput
+                    id="city"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.city"
+                    required
+                    autofocus
+                    autocomplete="city"
+                />
+
+                <InputError class="mt-2" :message="form.errors.city" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="province" value="Province" />
+
+                <TextInput
+                    id="province"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.province"
+                    required
+                    autofocus
+                    autocomplete="province"
+                />
+
+                <InputError class="mt-2" :message="form.errors.province" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="zip_code" value="Zip Code" />
+
+                <TextInput
+                    id="zip_code"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.zip_code"
+                    required
+                    autofocus
+                    autocomplete="zip_code"
+                />
+
+                <InputError class="mt-2" :message="form.errors.zip_code" />
             </div>
 
             <div class="mt-4">
