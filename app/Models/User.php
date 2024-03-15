@@ -52,8 +52,7 @@ class User extends Authenticatable
 
     public function person(): HasOne
     {
-
-        return $this->hasOne(Person::class, 'person_id');
+        return $this->hasOne(Person::class, 'id');
     }
 
     public function user_role(): HasMany

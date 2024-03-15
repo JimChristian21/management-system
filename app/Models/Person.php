@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use App\Models\Address;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\{
+    Address,
+    User
+};
 
 class Person extends Model
 {
@@ -18,11 +22,15 @@ class Person extends Model
         'family_name',
         'gender',
         'birthdate',
-        'email'
     ];
 
-    public function address(): HasOne 
+    public function address(): HasOne
     {
         return $this->hasOne(Address::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'person_id');
     }
 }

@@ -32,8 +32,35 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => $request->user(),
+                'user' => $this->get_user($request->user()),
             ],
         ];
+    }
+
+    public function get_user($user)
+    {
+
+        $ret = $user;
+
+        if ($ret && $person = $user->person) {
+
+            $roles = $user->user_role->map(function ($user_role) {
+
+                return $user_role->role->role;
+            });
+
+            $ret = [
+                'email' => $user->email,
+                'full_name' => "{$person->given_name} {$person->family_name}",
+                'given_name' => $person->given_name,
+                'family_name_name' => $person->family_name,
+                'gender' => $person->gender,
+                'birthdate' => $person->birthdate,
+                'phone_number' => $person->phone_number,
+                'roles' => $roles
+            ];
+        }
+
+        return $ret;
     }
 }
