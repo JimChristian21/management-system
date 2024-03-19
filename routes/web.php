@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\{
     ProfileController,
-    InventoryController
+    InventoryController,
+    ProductController
 };
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
+    Route::get('/inventory/products', [ProductController::class, 'index'])->name('inventory.products');
 });
 
 require __DIR__.'/auth.php';
