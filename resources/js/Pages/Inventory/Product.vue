@@ -23,7 +23,7 @@ const limits = [
 </script>
 
 <template>
-    <div class="w-full p-3 border-2 border-gray-400 rounded-lg ">
+    <div class="w-full p-3 border-2 border-gray-400 rounded-lg overflow-auto">
         <table class="w-full">
             <tr class="font-bold rounded-tl-full">
                 <td class="py-3 p-2 border border-gray-800">Code</td>
