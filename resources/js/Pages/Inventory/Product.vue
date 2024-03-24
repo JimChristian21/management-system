@@ -1,7 +1,10 @@
 <script setup>
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
 import { router } from '@inertiajs/vue3';
+import { MdDelete } from "oh-vue-icons/icons";
+import { addIcons } from "oh-vue-icons";
+
+addIcons(MdDelete);
+
 
 defineProps({
     'products': Object
@@ -16,7 +19,7 @@ defineProps({
             <td>Description</td>
             <td>Quantity</td>
             <td>Price</td>
-            <td>Action</td>
+            <td>Actions</td>
         </tr>
         <tr v-for="product in products" :key="product.code">
             <td>{{ product.code }}</td>
@@ -25,7 +28,7 @@ defineProps({
             <td>{{ product.quantity }}</td>
             <td>{{ product.price }}</td>
             <td>
-
+                <v-icon name="md-delete" width="20" height="20" class="text-gray-800"/>
             </td>
         </tr>
     </table>

@@ -6,6 +6,7 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import PrimeVue from 'primevue/config';
+import { OhVueIcon, addIcons } from "oh-vue-icons";
 import 'primevue/resources/themes/aura-light-green/theme.css'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
@@ -18,6 +19,7 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue)
             .use(PrimeVue)
+            .component("v-icon", OhVueIcon)
             .mount(el);
     },
     progress: {
